@@ -14,8 +14,11 @@ export class Reader extends Component {
     }
 
     componentDidMount() {
-        const savedIndex=Number(localStorage.getItem(LS_KEY));
-        this.setState({index: savedIndex});
+        const savedState = localStorage.getItem(LS_KEY);
+        if(savedState){
+            const savedIndex=Number(localStorage.getItem(LS_KEY));
+            this.setState({index: savedIndex});
+        }        
     }
 
     componentDidUpdate(prevProps, prevState) {
